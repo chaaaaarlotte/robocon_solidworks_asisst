@@ -20,9 +20,13 @@ namespace sldworks_assist.Views
     /// </summary>
     public partial class pipeText : UserControl
     {
+        static public pipeTextChildern[] demention1Main;
+        static public pipeTextChildern[] demention2Main;
+
         public pipeText()
         {
             InitializeComponent();
+            
         }
 
 
@@ -53,11 +57,11 @@ namespace sldworks_assist.Views
             demention2.Children.Clear();
             if (Demention2Text.Text != "")
             {
-                pipeTextChildern[] Ha = new pipeTextChildern[int.Parse(Demention2Text.Text)];
+                demention2Main = new pipeTextChildern[int.Parse(Demention2Text.Text)];
                 for (int i = 0; i < int.Parse(Demention2Text.Text.ToString()); i++)
                 {
-                    Ha[i] = new pipeTextChildern();
-                    demention2.Children.Add(Ha[i]);
+                    demention2Main[i] = new pipeTextChildern();
+                    demention2.Children.Add(demention2Main[i]);
                 }
             }
         }
@@ -67,11 +71,11 @@ namespace sldworks_assist.Views
             demention1.Children.Clear();
             if (Demention1Text.Text != "")
             {
-                pipeTextChildern[] Ha = new pipeTextChildern[int.Parse(Demention1Text.Text)];
+                demention1Main = new pipeTextChildern[int.Parse(Demention1Text.Text)];
                 for (int i = 0; i < int.Parse(Demention1Text.Text.ToString()); i++)
                 {
-                    Ha[i] = new pipeTextChildern();
-                    demention1.Children.Add(Ha[i]);
+                    demention1Main[i] = new pipeTextChildern();
+                    demention1.Children.Add(demention1Main[i]);
                 }
             }
         }

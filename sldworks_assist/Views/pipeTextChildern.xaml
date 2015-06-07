@@ -6,13 +6,16 @@
              xmlns:vm="clr-namespace:sldworks_assist.ViewModels"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.DataContext>
+        <vm:PipeTextViewModel/>
+    </UserControl.DataContext>
     <Grid>
         <WrapPanel>
             <TextBlock Text="Φ"/>
-            <TextBox Width="50"/>
+            <TextBox Width="50" x:Name="fai"/>
             <TextBlock Text="mm"/>
             <TextBlock Text="位置" Margin="10,0,0,0"/>
-            <TextBox Width="50"/>
+            <TextBox Width="50" x:Name="locat"/>
             <TextBlock Text="mm"/>
         </WrapPanel>
     </Grid>

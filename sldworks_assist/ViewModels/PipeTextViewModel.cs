@@ -12,6 +12,7 @@ using Livet.EventListeners;
 using Livet.Messaging.Windows;
 
 using sldworks_assist.Models;
+using sldworks_assist.Views;
 
 namespace sldworks_assist.ViewModels
 {
@@ -58,8 +59,34 @@ namespace sldworks_assist.ViewModels
          * LivetのViewModelではプロパティ変更通知(RaisePropertyChanged)やDispatcherCollectionを使ったコレクション変更通知は
          * 自動的にUIDispatcher上での通知に変換されます。変更通知に際してUIDispatcherを操作する必要はありません。
          */
+        #region 面1の穴の数
+        private object _Demention1data;
+
+        public object Demention1data
+        {
+            get { return this._Demention1data; }
+            set
+            {
+                if (this._Demention1data != value)
+                {
+                    this._Demention1data = value;
+                    this.RaisePropertyChanged();
+                }
+            }
+        }
+        #endregion
 
         public void Initialize()
+        {
+            
+        }
+
+        public PipeTextViewModel()
+        {
+            this.Demention1data = "3";
+        }
+
+        public void Demention1Text()
         {
             
         }

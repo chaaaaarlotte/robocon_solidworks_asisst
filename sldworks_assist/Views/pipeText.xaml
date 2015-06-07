@@ -36,7 +36,15 @@
                             <TextBox Width="50" Margin="2,0,100,0" 
                                      KeyDown="Demention1_KeyDown"
                                      Name="Demention1Text"
-                                     KeyUp="Demention1Text_KeyUp"/>
+                                     KeyUp="Demention1Text_KeyUp"
+                                     Text="{Binding Demention1data}">
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="KeyUp">
+                                        <l:LivetCallMethodAction MethodTarget="{Binding}"
+                                                                 MethodName="Demention1Text"/>
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                            </TextBox>
                         </WrapPanel>
                         <StackPanel Margin="0,3" Name="demention1"/>
                     </StackPanel>
