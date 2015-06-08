@@ -11,11 +11,12 @@
     </UserControl.DataContext>
     <Grid>
         <WrapPanel>
+            <TextBlock Text="{Binding Number}"/>
             <TextBlock Text="Φ"/>
             <TextBox Width="50" x:Name="fai"/>
             <TextBlock Text="mm"/>
             <TextBlock Text="位置" Margin="10,0,0,0"/>
-            <TextBox Width="50" x:Name="locat"/>
+            <TextBox Width="50" x:Name="distance"/>
             <TextBlock Text="mm"/>
         </WrapPanel>
     </Grid>

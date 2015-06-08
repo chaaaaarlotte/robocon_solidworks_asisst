@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.ComponentModel;
+using System.Windows;
 
 using Livet;
 using Livet.Commands;
@@ -76,6 +77,74 @@ namespace sldworks_assist.ViewModels
         }
         #endregion
 
+        #region FilePath変更通知プロパティ
+        private string _FilePath;
+
+        public string FilePath
+        {
+            get { return this._FilePath; }
+            set
+            {
+                if (this._FilePath != value)
+                {
+                    this._FilePath = value;
+                    this.RaisePropertyChanged();
+                }
+            }
+        }
+        #endregion
+
+        #region 経(一覧)の変更通知プロパティ
+        private int[] _AllKei;
+
+        public int[] AllKei
+        {
+            get { return this._AllKei; }
+            set
+            {
+                if(this._AllKei != value)
+                {
+                    this._AllKei = value;
+                    this.RaisePropertyChanged();
+                }
+            }
+        }
+        #endregion
+
+        #region Length 変更通知プロパティ
+        private string _Length;
+
+        public string Length
+        {
+            get { return this._Length; }
+            set
+            {
+                if (this._Length != value)
+                {
+                    this._Length = value;
+                    this.RaisePropertyChanged();
+                }
+            }
+        }
+        #endregion
+
+        #region 経の変更通知プロパティ
+        private int _Kei;
+
+        public int Kei
+        {
+            get { return this._Kei; }
+            set
+            {
+                if(this._Kei != value)
+                {
+                    this._Kei = value;
+                    this.RaisePropertyChanged();
+                }
+            }
+        }
+        #endregion
+
         public void Initialize()
         {
             
@@ -83,12 +152,40 @@ namespace sldworks_assist.ViewModels
 
         public PipeTextViewModel()
         {
-            this.Demention1data = "3";
+            FilePath = @"C:\sldWorks\Part\newPart1.sldprt";
+            AllKei = new int[]{9,10,12,15,20};
+            Kei = 0;
+            Length = "100";
         }
 
         public void Demention1Text()
         {
             
+        }
+
+        public void ChangePathRun()
+        {
+
+            Microsoft.Win32.SaveFileDialog sfd = new Microsoft.Win32.SaveFileDialog();
+            sfd.FileName = "newpart.sldprt";
+            sfd.InitialDirectory = @"C:\";
+            sfd.Filter =
+                "すべてのファイル(*.*)|*.*";
+            sfd.Title = "保存先のファイルを選択してください";
+            sfd.RestoreDirectory = true;
+
+            if ((bool)sfd.ShowDialog())
+            {
+                FilePath = sfd.FileName;
+                Run();
+            }
+        }
+
+        public void Run()
+        {
+            Core core = new Core();
+            int kei = AllKei[Kei];
+            core.CreatePipe(FilePath, kei,Length);
         }
 
     }
