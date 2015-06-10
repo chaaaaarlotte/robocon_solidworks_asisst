@@ -28,7 +28,6 @@ namespace sldworks_assist.Views
             InitializeComponent();
         }
 
-
         private void Demention1_KeyDown(object sender, KeyEventArgs e)
         {
             if (!(Key.D0 <= e.Key && e.Key <= Key.D9) &&
@@ -38,7 +37,6 @@ namespace sldworks_assist.Views
                 MessageBox.Show("数値を入力してください。");
                 e.Handled = true;
             }
-            
         }
 
         private void Demention2_KeyDown(object sender, KeyEventArgs e)
@@ -49,7 +47,6 @@ namespace sldworks_assist.Views
             {
                 MessageBox.Show("数値を入力してください。");
                 e.Handled = true;
-                
             }
         }
 
@@ -64,7 +61,6 @@ namespace sldworks_assist.Views
                     demention2Main[i] = new pipeTextChildern();
                     demention2.Children.Add(demention2Main[i]);
                     demention2Main[i].fai.Text = "3.2";
-                    demention2Main[i].distance.Text = "6";
                 }
             }
         }
@@ -79,9 +75,7 @@ namespace sldworks_assist.Views
                 {
                     demention1Main[i] = new pipeTextChildern();
                     demention1.Children.Add(demention1Main[i]);
-                    demention1Main[i].fai.Text = "3.2";
-                    demention1Main[i].distance.Text = "6";
-                    
+                    demention1Main[i].fai.Text = "3.2";   
                 }
             }
         }
@@ -95,9 +89,7 @@ namespace sldworks_assist.Views
             {
                 MessageBox.Show("数値を入力してください。");
                 e.Handled = true;
-            }
-                
-            
+            }            
         }
     }
 }
